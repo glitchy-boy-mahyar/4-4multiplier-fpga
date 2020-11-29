@@ -13,8 +13,9 @@ module multiplier_2bit(a, b, res);
     assign res[0] = a0b0;
 
     module_c1 c1_res1(ZERO, ONE, a0b1, ONE, ZERO, a0b1, a1b0, ZERO, res[1]),
-              c1_res2(a1b1, ZERO, a0b0, ZERO, ZERO, ZERO, ZERO, ZERO, res[2]),
-              c1_res3(ZERO, a0b0, a1b1, ZERO, ZERO, ZERO, ZERO, ZERO, res[3]);
+              c1_res3(ZERO, a0b1, a1b0, ZERO, ZERO, ZERO, ZERO, ZERO, res[3]);
+
+    module_c2 c2_res2(ZERO, ZERO, b[1], ZERO, a[1], ZERO, a[0], b[0], res[2]);
 endmodule
 
 module test_multiplier_2bit();

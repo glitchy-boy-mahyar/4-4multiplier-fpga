@@ -74,8 +74,8 @@ module test_adder();
     adder add(a, b, out, carry_out);
 
     initial begin
-        a = 8'b001101001; 
-        b = 8'b010110110;
+        a = 8'b01101001; 
+        b = 8'b10110110;
         #100
         a = 8'b00001010;
         b = 8'b01010111;
