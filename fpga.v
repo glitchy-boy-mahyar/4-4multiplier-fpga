@@ -74,9 +74,9 @@ module test_bench();
         #100 $stop;
     end
 
-    always@ (f.d.adder.a or f.d.adder.b)begin
-        if(in_1 == 5 && in_2 == 5)begin
-          $display("ERROR: a = %d b = %d out adder =%d,", f.d.adder.a, f.d.adder.b, f.d.adder.out);
-        end
-    end
+    // always@ (f.d.adder.a or f.d.adder.b)begin
+    //     if(in_1 == 5 && in_2 == 5)begin
+    //       $display("ERROR: a = %d b = %d out adder =%d,", f.d.adder.a, f.d.adder.b, f.d.adder.out);
+    //     end
+    // end
 endmodule
