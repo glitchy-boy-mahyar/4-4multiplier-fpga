@@ -4,11 +4,10 @@ module multiplier_2bit(a, b, res);
     input [1:0] a, b;
     output [3:0] res;
 
-    wire a0b0, a0b1, a1b0, a1b1;
+    wire a0b0, a0b1, a1b0;
     module_c1 c1_a0b0(ZERO, a[0], b[0], ZERO, ZERO, ZERO, ZERO, ZERO, a0b0),
               c1_a0b1(ZERO, a[0], b[1], ZERO, ZERO, ZERO, ZERO, ZERO, a0b1),
-              c1_a1b0(ZERO, a[1], b[0], ZERO, ZERO, ZERO, ZERO, ZERO, a1b0),
-              c1_a1b1(ZERO, a[1], b[1], ZERO, ZERO, ZERO, ZERO, ZERO, a1b1);
+              c1_a1b0(ZERO, a[1], b[0], ZERO, ZERO, ZERO, ZERO, ZERO, a1b0);
 
     assign res[0] = a0b0;
 

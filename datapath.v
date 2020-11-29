@@ -28,7 +28,7 @@ module datapath(a, b, clk, rst, ld_1, ld_2, s0, s1, s2, out);
 
     wire [7:0] out_shifter;
     shift_left shifter(out_reg_3, out_shifter);
-
+    
     mux_8bit mux_3(out_shifter, out_reg_3, s2, out_mux_3);
     assign out = out_reg_3;
 endmodule

@@ -1,3 +1,4 @@
+`timescale  1 ns / 1 ns
 module fpga(clk, rst, start, in_1, in_2, out, ready);
 
     input clk, rst, start;
@@ -64,6 +65,8 @@ module test_bench();
                 #10 start = 1'b1;
                 #10 start = 1'b0;
                 golden_result = in_1 * in_2;
+                #100 if (golden_result != out)
+                    $display("ERROR: golden_res=%d, out=%d", golden_result, out);
                 #100 in_2 = in_2 + 1;
             end       
             in_1 = in_1 + 1;
