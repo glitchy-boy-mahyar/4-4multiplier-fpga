@@ -11,8 +11,13 @@ module adder(a, b, out, carry_out);
     wire a1_XOR_b1, a1_AND_b1, c1_AND_a1_XOR_b1, a2_XOR_b2,
          a2_AND_b2, c2_AND_a2_XOR_b2;
 
-    module_c2 out0(ZERO, ZERO, ONE, ONE, a[0], b[0], a[0], b[0], out[0]),
-              _c1(ZERO, ZERO, ZERO, ONE, a[0], b[0], a[0], b[0], c1);
+    wire a0_XOR_b0, a0_AND_b0, c0_AND_a0_XOR_b0;
+
+    module_c2 _a0_XOR_b0(ZERO, ZERO, ONE, ZERO, a[0], b[0], a[0], b[0], a0_XOR_b0),
+              _XOR_c0(ZERO, ZERO, ONE, ZERO, a0_XOR_b0, ZERO, a0_XOR_b0, ZERO, out[0]),
+              _a0_AND_b0(ZERO, ZERO, ZERO, ONE, a[0], b[0], a[0], b[0], a0_AND_b0),
+              _c0_AND_a0_XOR_b0(ZERO, ZERO, ZERO, ONE, ZERO, a0_XOR_b0, ZERO, a0_XOR_b0, c0_AND_a0_XOR_b0),
+              _c1(ZERO, ZERO, ONE, ONE, a0_AND_b0, c0_AND_a0_XOR_b0, a0_AND_b0, c0_AND_a0_XOR_b0, c1);
 
     module_c2 _a1_XOR_b1(ZERO, ZERO, ONE, ZERO, a[1], b[1], a[1], b[1], a1_XOR_b1),
               _XOR_c1(ZERO, ZERO, ONE, ZERO, a1_XOR_b1, c1, a1_XOR_b1, c1, out[1]),

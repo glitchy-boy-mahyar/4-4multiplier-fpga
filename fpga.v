@@ -66,11 +66,17 @@ module test_bench();
                 #10 start = 1'b0;
                 golden_result = in_1 * in_2;
                 #100 if (golden_result != out)
-                    $display("ERROR: golden_res=%d, out=%d", golden_result, out);
+                    $display("ERROR: golden_res=%b, out=%b", in_1, in_2);
                 #100 in_2 = in_2 + 1;
             end       
             in_1 = in_1 + 1;
         end
         #100 $stop;
+    end
+
+    always@ (f.d.adder.a or f.d.adder.b)begin
+        if(in_1 == 5 && in_2 == 5)begin
+          $display("ERROR: a = %d b = %d out adder =%d,", f.d.adder.a, f.d.adder.b, f.d.adder.out);
+        end
     end
 endmodule
