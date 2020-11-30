@@ -23,6 +23,7 @@ module datapath(a, b, clk, rst, ld_1, ld_2, s0, s1, s2, out);
     wire [7:0] out_adder;
     // adder adder(out_zero_extend, out_mux_3, out_adder, cout);
     adder_minim am(out_zero_extend, out_mux_3, out_adder, cout);
+    
     wire [7:0] out_reg_3;
     register_8bit reg_3(out_adder, clk, rst, ld_2, out_reg_3);
 
